@@ -50,6 +50,7 @@ let precioDiv = document.getElementById("precio");
 //Agregar al carrito
 
 function agregarAlCarrito(evt) {
+    evt.preventDefault();
     container.innerHTML = ``;
 
     let inputProducto = document.getElementById("inputProducto");
@@ -64,7 +65,6 @@ function agregarAlCarrito(evt) {
         let msj = document.createElement("div");
         msj.innerHTML = `<div>El producto no fue encontrado. Por favor ingrese otro producto.</div>`;
         container.appendChild(msj);
-        evt.preventDefault();
     }
 
     console.log(carrito);
@@ -122,7 +122,6 @@ function mostrarProductos() {
             
             cont.appendChild(boton);
             container.appendChild(cont);
-            //e.preventDefault();
         }
     }
 }
