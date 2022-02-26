@@ -7,13 +7,6 @@ class Libro{
         this.autor = autor; 
         this.precio = precio;
     }
-
-    // comprar(pedido){
-    //     if (this.titulo == pedido) {
-    //         return true
-    //     } 
-    //     return false   .toUpperCase()
-    // }
 }
 
 
@@ -82,19 +75,6 @@ function vaciarCarrito() {
     mostrarProductos();
 }
 
-//Borrar un producto
-
-// function borrarProd() {
-
-//     localStorage.removeItem();
-
-//     carrito = [];
-
-//     container.innerHTML = "";
-
-//     mostrarProductos();
-// }
-
 
 //mostrar productos 
 
@@ -102,32 +82,36 @@ function mostrarProductos() {
 
     let carritoStorage = JSON.parse(localStorage.getItem("carrito"));
 
-    if(carritoStorage !== null){
-        let container = document.getElementById("container");
-        container.innerHTML = "";
         for (let libro of carritoStorage) {
-            let cont = document.createElement("div");
-            cont.id = libro.id;
-            cont.innerHTML = `
-                    <div>
-                        <h3>${libro.titulo}</h3>
-                        <p>${libro.autor}</p>
-                        <h4>$${libro.precio}</h4>
-                    </div>
-                    `
-                    let boton = document.createElement("button");
-                    boton.id = libro.id;
-                    boton.innerHTML = "Eliminar";
-                    //boton.addEventListener("click", borrarProd);
-            
-            cont.appendChild(boton);
-            container.appendChild(cont);
+
+            $("#container").append(`
+            <div id="card">
+                <h3>${libro.titulo}</h3>
+                <p>${libro.autor}</p>
+                <h4>$${libro.precio}</h4>
+            </div>
+            `);
         }
     }
-}
 
 
 //Eventos Botones
+
+
+$("#botonOcultarCarrito").click(function () { 
+    $("#container").animate({
+                        opacity:"0.5",
+                    })
+                    .slideUp(2000)
+                    ;
+});
+
+$("#botonMostrarCarrito").click(function () { 
+    $("#container").slideDown(2000)
+                    .animate({
+                        opacity:"1",
+                    });
+});
 
 let botonAgregar = document.getElementById("botonAgregar");
 let botonVaciarCarrito = document.getElementById("botonVaciarCarrito");
