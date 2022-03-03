@@ -8,16 +8,21 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="contenedor">
-        <ol>
+    <div style="display: flex; justify-content: space-around;" id="contenedor">
+        <!-- <ol>
             <li>Orgullo y Prejuicio</li>
             <li>Harry Potter</li>
             <li>Caballo de Fuego</li>
-        </ol>
+        </ol> -->
     </div>
 
     <form>
-        <input type="text" placeholder="Ingrese el producto" id="inputProducto" name="inputProducto">
+        <select name="selectProducto" id="selectProducto">
+            <option value="0">Orgullo y Prejuicio</option>
+            <option value="1">Harry Potter</option>
+            <option value="2">Caballo de Fuego</option>
+        </select>
+        <!-- <input type="text" placeholder="Ingrese el producto" id="inputProducto" name="inputProducto"> -->
         <button type="submit" id="botonAgregar">Agregar al carrito</button>
         <button type="button" id="botonVaciarCarrito">Vaciar carrito</button>
         <button type="button" id="botonOcultarCarrito">Ocultar carrito</button>
@@ -26,7 +31,9 @@
 
     <hr>
 
-    <div style="display: flex; justify-content: space-around;" id="container"></div>
+    <div 
+    style="display: flex; justify-content: space-around;" 
+    id="container"></div>
 
     <div id="mensaje"></div>
 

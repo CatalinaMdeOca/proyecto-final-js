@@ -1,0 +1,20 @@
+[
+    {
+        "id":0,
+        "titulo":"Orgullo y Prejuicio",
+        "autor":"Jane Austen",
+        "precio":1200
+    },
+    {
+        "id":1,
+        "titulo":"Harry Potter",
+        "autor":"J. K. Rowling",
+        "precio":1450
+    },
+    {
+        "id":2,
+        "titulo":"Caballo de Fuego",
+        "autor":"Florencia Bonelli",
+        "precio":1300
+    }
+]
