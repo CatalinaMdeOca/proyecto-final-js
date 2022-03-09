@@ -7,6 +7,7 @@ class Libro{
         this.autor = autor; 
         this.precio = precio;
         this.cantidad = cantidad;
+        this.precioTotal = precio;
     }
 
     agregarUnidad(){
@@ -16,31 +17,13 @@ class Libro{
     quitarUnidad(){
         this.cantidad--;
     }
+
+    actualizarPrecio(){
+        this.precioTotal = this.precio * this.cantidad;
+    }
 }
 
 
-
-
-// let libros = [
-//     {
-//         id:0,
-//         titulo:"Orgullo y Prejuicio".toUpperCase(),
-//         autor:"Jane Austen",
-//         precio:1200,
-//     },
-//     {
-//         id:1,
-//         titulo:"Harry Potter".toUpperCase(),
-//         autor:"J. K. Rowling",
-//         precio:1450,
-//     },
-//     {
-//         id:2,
-//         titulo:"Caballo de Fuego".toUpperCase(),
-//         autor:"Florencia Bonelli",
-//         precio:1300,
-//     },
-// ]
 
 let carrito = [];
 
@@ -54,8 +37,6 @@ let precioDiv = document.getElementById("precio");
 //IMPRIMIR PROD HTML
 
 $(document).ready(function () {
-    //$("#botonAgregar").click(function (e) { 
-            //e.preventDefault();
     
             $.get("libros.json", function (data) {
                     console.log(data);
@@ -66,48 +47,62 @@ $(document).ready(function () {
                                                 <h5>${libro.autor}</h5>
                                                 <h3>$${libro.precio}</h3>
                                                 `);
-
-                        // $(`agregar${libro.id}`).click(function () { 
-                            // <button type="button" id="agregar${libro.id}">Agregar</button>
-                            //                     </div>
-                        // });
                     });
     
                 }
             );
-        //});
     });
 
 
 //Agregar al carrito
 
 function agregarAlCarrito(evt) {
-    evt.preventDefault();
+    evt.preventDefault();    
 
-    let inputProducto = document.getElementById("selectProducto");
+    container.innerHTML = ``;
 
     $.get("libros.json", function (data) {
             $.each(data, function (index, libro) { 
                 
-                    if(inputProducto.value == libro.id){
-                        
+                    if($("#selectProducto :selected").val() == index){
                         carrito.push(libro);
                         localStorage.setItem("carrito", JSON.stringify(carrito));
-                        //mostrarProductos();
-                    } else {
-                        $("#container").append(`<div>El producto no fue encontrado. Por favor ingrese otro producto.</div>`);
-                    }
-                
+
+                        $("#container").append(`
+                                            <div id="mostrar">
+                                                <h3>Se agregó al carrito:</h3><br>
+                                                <ul id="lista">
+                                                <li>${libro.titulo + " $" + libro.precio}</li>
+                                                </ul>
+                                            </div>
+                                            `);
+                    } 
             });
     });
+}
+
+
+
+//MOSTRAR CARRITO
+
+function mostrarCarrito() {
 
     container.innerHTML = ``;
 
-    //let libro = libros.find((e) => e.titulo === inputProducto.value.toUpperCase());
-    console.log(carrito);
+    let carritoStorage = JSON.parse(localStorage.getItem("carrito"));
 
-    //mostrarProductos();
-}
+            $("#container").append(`
+            <div id="mostrar">
+                <h3>El carrito contiene los siguientes productos:</h3><br>
+                <ul id="lista">
+                </ul>
+            </div>
+            `);
+
+        for (let libro of carritoStorage) {
+            $("#lista").append(`<li>${libro.titulo}</li>`);
+        }
+    }
 
 
 
@@ -127,24 +122,25 @@ function vaciarCarrito() {
 //Eventos Botones
 
 
-$("#botonOcultarCarrito").click(function () { 
-    $("#container").animate({
-                        opacity:"0.5",
-                    })
-                    .slideUp(2000)
-                    ;
-});
+// $("#botonOcultarCarrito").click(function () { 
+//     $("#container").animate({
+//                         opacity:"0.5",
+//                     })
+//                     .slideUp(2000)
+//                     ;
+// });
 
-$("#botonMostrarCarrito").click(function () { 
-    $("#container").slideDown(2000)
-                    .animate({
-                        opacity:"1",
-                    });
-});
+// $("#botonMostrarCarrito").click(function () { 
+//     $("#container").slideDown(2000)
+//                     .animate({
+//                         opacity:"1",
+//                     });
+// });
 
 let botonAgregar = document.getElementById("botonAgregar");
 let botonVaciarCarrito = document.getElementById("botonVaciarCarrito");
+let botonMostrarCarrito = document.getElementById("botonMostrarCarrito");
 
 botonAgregar.addEventListener("click", agregarAlCarrito);
 botonVaciarCarrito.addEventListener("click", vaciarCarrito);
-
+botonMostrarCarrito.addEventListener("click", mostrarCarrito);
