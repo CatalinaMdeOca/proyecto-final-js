@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(90deg, #1f4037 0%, #67f39c 100%);
+}
+.body .form {
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+.body .form #selectProducto {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, #67f39c 0%, #c5fad9 100%);
+  font-size: 1rem;
+}
+.body .form .boton {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, #67f39c 0%, #c5fad9 100%);
+  font-size: 1rem;
+}
+.body #contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 1rem;
+  padding: 1rem;
+}
+.body #contenedor #card {
+  margin: 1rem;
+  padding: 1rem;
+  border: solid 1px white;
+  border-radius: 0.5rem;
+  width: 225px;
+  background: linear-gradient(90deg, #387463 0%, #aef8ca 100%);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-evenly;
+}
+.body #contenedor #card h3 {
+  font-size: 1.3rem;
+  margin: 0.5rem;
+}
+.body #contenedor #card h5 {
+  font-size: 1.1rem;
+  margin: 0.5rem;
+}
+.body #container {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+/*# sourceMappingURL=style.css.map */

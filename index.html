@@ -5,34 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
-<body>
-    <div style="display: flex; justify-content: space-around;" id="contenedor">
-        <!-- <ol>
-            <li>Orgullo y Prejuicio</li>
-            <li>Harry Potter</li>
-            <li>Caballo de Fuego</li>
-        </ol> -->
+<body class="body">
+    <div class="form">
+        <form>
+            <select name="selectProducto" id="selectProducto">
+                <option value="0">Orgullo y Prejuicio</option>
+                <option value="1">Harry Potter</option>
+                <option value="2">Caballo de Fuego</option>
+                <option value="3">El Diario de Ana Frank</option>
+            </select>
+            <!-- <input type="text" placeholder="Ingrese el producto" id="inputProducto" name="inputProducto"> -->
+            <button type="submit" class="boton" id="botonAgregar">Agregar al carrito</button>
+            <button type="submit" class="boton" id="botonVerCarrito">Ver carrito</button>
+            <button type="button" class="boton" id="botonVaciarCarrito">Vaciar carrito</button>
+            <button type="button" class="boton" id="botonMostrarCarrito">Mostrar carrito</button>
+            <button type="button" class="boton" id="botonOcultarCarrito">Ocultar carrito</button>
+        </form>
     </div>
 
-    <form>
-        <select name="selectProducto" id="selectProducto">
-            <option value="0">Orgullo y Prejuicio</option>
-            <option value="1">Harry Potter</option>
-            <option value="2">Caballo de Fuego</option>
-        </select>
-        <!-- <input type="text" placeholder="Ingrese el producto" id="inputProducto" name="inputProducto"> -->
-        <button type="submit" id="botonAgregar">Agregar al carrito</button>
-        <button type="button" id="botonVaciarCarrito">Vaciar carrito</button>
-        <button type="button" id="botonMostrarCarrito">Mostrar carrito</button>
-    </form>
+    <div id="contenedor">
+    </div>
 
-    <hr>
-
-    <div 
-    style="display: flex; justify-content: space-around;" 
-    id="container"></div>
+    <div id="container"></div>
 
     <div id="mensaje"></div>
 

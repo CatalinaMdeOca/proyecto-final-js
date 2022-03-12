@@ -16,5 +16,11 @@
         "titulo":"Caballo de Fuego",
         "autor":"Florencia Bonelli",
         "precio":1300
+    },
+    {
+        "id":3,
+        "titulo":"El Diario de Ana Frank",
+        "autor":"Ana Frank",
+        "precio":1100
     }
 ]

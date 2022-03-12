@@ -42,19 +42,26 @@ $(document).ready(function () {
                     console.log(data);
     
                     $.each(data, function (index, libro) { 
-                        $("#contenedor").append(`<div       style="margin: 15px;" id="card">
+                        $("#contenedor").append(`<div id="card">
                                                 <h3>${libro.titulo}</h3>
                                                 <h5>${libro.autor}</h5>
                                                 <h3>$${libro.precio}</h3>
                                                 `);
                     });
+
+                    // let botonAgregarCard = document.getElementById(`#agregar${libro.id}`);
     
-                }
-            );
+                    // botonAgregarCard.addEventListener("click", agregarCard)
+
+                //     <div>
+                //     <button id="agregar${libro.titulo}">Agregar</button>
+                // </div>
+                });
     });
 
 
-//Agregar al carrito
+
+//AGREGAR CARD
 
 function agregarAlCarrito(evt) {
     evt.preventDefault();    
@@ -83,9 +90,40 @@ function agregarAlCarrito(evt) {
 
 
 
+
+//Agregar al carrito
+
+// function agregarAlCarrito(evt) {
+//     evt.preventDefault();    
+
+//     container.innerHTML = ``;
+
+//     $.get("libros.json", function (data) {
+//             $.each(data, function (index, libro) { 
+                
+//                     if($("#selectProducto :selected").val() == index){
+//                         carrito.push(libro);
+//                         localStorage.setItem("carrito", JSON.stringify(carrito));
+
+//                         $("#container").append(`
+//                                             <div id="mostrar">
+//                                                 <h3>Se agregó al carrito:</h3><br>
+//                                                 <ul id="lista">
+//                                                 <li>${libro.titulo + " $" + libro.precio}</li>
+//                                                 </ul>
+//                                             </div>
+//                                             `);
+//                     } 
+//             });
+//     });
+// }
+
+
+
 //MOSTRAR CARRITO
 
-function mostrarCarrito() {
+function mostrarCarrito(evt) {
+    evt.preventDefault();
 
     container.innerHTML = ``;
 
@@ -122,25 +160,25 @@ function vaciarCarrito() {
 //Eventos Botones
 
 
-// $("#botonOcultarCarrito").click(function () { 
-//     $("#container").animate({
-//                         opacity:"0.5",
-//                     })
-//                     .slideUp(2000)
-//                     ;
-// });
+$("#botonOcultarCarrito").click(function () { 
+    $("#container").animate({
+                        opacity:"0.5",
+                    })
+                    .slideUp(2000)
+                    ;
+});
 
-// $("#botonMostrarCarrito").click(function () { 
-//     $("#container").slideDown(2000)
-//                     .animate({
-//                         opacity:"1",
-//                     });
-// });
+$("#botonMostrarCarrito").click(function () { 
+    $("#container").slideDown(2000)
+                    .animate({
+                        opacity:"1",
+                    });
+});
 
 let botonAgregar = document.getElementById("botonAgregar");
 let botonVaciarCarrito = document.getElementById("botonVaciarCarrito");
-let botonMostrarCarrito = document.getElementById("botonMostrarCarrito");
+let botonVerCarrito = document.getElementById("botonVerCarrito");
 
 botonAgregar.addEventListener("click", agregarAlCarrito);
 botonVaciarCarrito.addEventListener("click", vaciarCarrito);
-botonMostrarCarrito.addEventListener("click", mostrarCarrito);
+botonVerCarrito.addEventListener("click", mostrarCarrito);
