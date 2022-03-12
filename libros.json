@@ -3,24 +3,28 @@
         "id":0,
         "titulo":"Orgullo y Prejuicio",
         "autor":"Jane Austen",
-        "precio":1200
+        "precio":1200,
+        "cantidad": 1
     },
     {
         "id":1,
         "titulo":"Harry Potter",
         "autor":"J. K. Rowling",
-        "precio":1450
+        "precio":1450,
+        "cantidad": 1
     },
     {
         "id":2,
         "titulo":"Caballo de Fuego",
         "autor":"Florencia Bonelli",
-        "precio":1300
+        "precio":1300,
+        "cantidad": 1
     },
     {
         "id":3,
         "titulo":"El Diario de Ana Frank",
         "autor":"Ana Frank",
-        "precio":1100
+        "precio":1100,
+        "cantidad": 1
     }
 ]
