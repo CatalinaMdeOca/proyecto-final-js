@@ -34,6 +34,8 @@ let mensaje = document.getElementById("mensaje");
 let precioDiv = document.getElementById("precio");
 
 
+
+
 //IMPRIMIR PROD HTML
 
 $(document).ready(function () {
@@ -50,66 +52,9 @@ $(document).ready(function () {
                                                 
                                                 `);
                     });
-
-                    //let botonAgregarCard = getElementById(`#agregar${libro.id}`);
-
-                    //botonAgregarCard.addEventListener("click", agregarAlCarrito)
-                    
-                    // <div>
-                    //                                 <button id="agregar${libro.id}">Agregar</button>
-                    //                             </div>
-                });
+            });
     });
 
-
-// AGREGAR CARD
-
-    //function agregarAlCarrito(idProducto) {
-        //evt.preventDefault();    
-    
-        //container.innerHTML = ``;
-
-        // let libroEnCarrito = carrito.find((elemento) => {
-        //     if (elemento.id == idProducto) {
-        //         return true;
-        //     }
-        // });
-
-        // if (libroEnCarrito) {
-        //     let index = carrito.findIndex((elemento) => {
-        //         if (elemento.id === libroEnCarrito.id) {
-        //             return true;
-        //         }
-        //     });
-
-        //     () => {
-        //         carrito[index].cantidad = cantidad++;
-        //     }
-        // } else {
-
-        // }
-    
-        // $.get("libros.json", function (data) {
-        //     console.log(data);
-
-        //         $.each(data, function (index, libro) { 
-                    
-        //                 if($("#selectProducto :selected").val() == index){
-        //                     carrito.push(libro);
-        //                     localStorage.setItem("carrito", JSON.stringify(carrito));
-    
-        //                     $("#container").append(`
-        //                                         <div id="mostrar">
-        //                                             <h3>Se agregó al carrito:</h3><br>
-        //                                             <ul id="lista">
-        //                                             <li>${libro.titulo + " $" + libro.precio}</li>
-        //                                             </ul>
-        //                                         </div>
-        //                                         `);
-        //                 } 
-        //         });
-        // });
-    //}
 
 
 
@@ -127,8 +72,6 @@ function agregarAlCarrito(evt) {
             $.each(data, function (index, libro) { 
                 
                     if($("#selectProducto :selected").val() == index){
-                        // console.log(index);
-                        // console.log(libro);
 
                         carrito.push(libro);
                         localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -208,12 +151,6 @@ function vaciarCarrito() {
 
 
 //Eventos Botones
-
-
-// $("#agregar${libro.id}").click(function (e) { 
-//     e.preventDefault();
-    
-// });
 
 
 $("#botonOcultarCarrito").click(function () { 
